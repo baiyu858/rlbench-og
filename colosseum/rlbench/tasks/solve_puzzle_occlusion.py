@@ -1,0 +1,36 @@
+from typing import List
+import numpy as np
+from pyrep.objects.proximity_sensor import ProximitySensor
+from pyrep.objects.shape import Shape
+from pyrep.objects.object import Object
+
+from rlbench.backend.conditions import NothingGrasped, DetectedCondition
+from rlbench.backend.task import Task
+    
+
+class SolvePuzzleOcclusion(Task):
+
+    def init_task(self) -> None:
+        piece2 = Shape('solve_puzzle_piece2')
+        self.register_graspable_objects([piece2])
+        self.register_success_conditions([
+            NothingGrasped(self.robot.gripper),
+            DetectedCondition(piece2, ProximitySensor('success'))
+        ])
+
+    def init_episode(self, index: int) -> List[str]:
+        return [
+            'solve the puzzle',
+            'put the puzzle piece into the puzzle',
+            'pick up the puzzle piece and place it on the puzzle'
+        ]
+
+    def variation_count(self) -> int:
+        return 1
+    
+    def base_rotation_bounds(self):
+        return (0.0, 0.0, -np.pi / 4), (0.0, 0.0, np.pi / 4)
+    
+    def boundary_root(self) -> Object:
+        return Shape('boundary_root')
+

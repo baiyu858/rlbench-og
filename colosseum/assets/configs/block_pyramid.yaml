@@ -1,0 +1,79 @@
+data:
+  # Where to save the demos
+  save_path: /home/hcp/robot-colosseum/data
+  # The size of the images to save
+  image_size: [128, 128]
+  # The renderer to use. Either opengl or opengl3. The first has no shadows
+  renderer: opengl3
+  # The number of episodes to collect per task
+  episodes_per_task: 30
+  # The image types that will be recorded
+  images:
+    rgb: True
+    depth: True
+    mask: False
+    point_cloud: False
+  # The cameras that we will be enabled
+  cameras:
+    left_shoulder: True
+    right_shoulder: True
+    overhead: True
+    wrist: True
+    front: True
+  # Store depth as 0 - 1
+  depth_in_meters: False
+  # We want to save the masks as rgb encodings.
+  masks_as_one_channel: True
+env:
+  task_name: "block_pyramid"
+  seed: 42
+  scene:
+    factors:
+
+      - variation: light_color
+        enabled: False
+        targets: [DefaultLightA, DefaultLightB, DefaultLightD]
+        color_range: [[0.0, 0.0, 0.0], [0.5, 0.5, 0.5]]
+        seed: ${env.seed}
+
+      - variation: table_texture
+        enabled: False
+        seed: ${env.seed}
+
+      - variation: table_color
+        enabled: False
+        color_range: [[0.25, 0.25, 0.25], [1.0, 1.0, 1.0]]
+        seed: ${env.seed}
+
+      - variation: background_texture
+        enabled: False
+        seed: ${env.seed}
+
+      - variation: distractor_object
+        enabled: True
+        targets: [spawn_boundary0]
+        num_objects: 2
+        seed: ${env.seed}
+
+      - variation: camera_pose
+        enabled: False
+        targets: [cam_front,
+                  cam_over_shoulder_left,
+                  cam_over_shoulder_right]
+        euler_range: [[-0.05, -0.05, -0.05], [0.05, 0.05, 0.05]]
+        position_range: [[-0.1, -0.1, -0.1], [0.1, 0.1, 0.1]]
+        seed: ${env.seed}
+
+      - variation: object_friction
+        enabled: False
+        targets: [block_pyramid_block0, block_pyramid_block1, block_pyramid_block2, block_pyramid_block3, block_pyramid_block4, block_pyramid_block5]
+        friction_range: [0.75, 1.0]
+        friction_same: True
+        seed: ${env.seed}
+
+      - variation: object_mass
+        enabled: False
+        targets: [block_pyramid_block0, block_pyramid_block1, block_pyramid_block2, block_pyramid_block3, block_pyramid_block4, block_pyramid_block5]
+        mass_range: [0.5, 2.5]
+        seed: ${env.seed}
+
