@@ -1,8 +1,29 @@
-## RLBench-OG Dataset
+<p align="center">
+    <h1 align="center">
+        RLBench-OG Benchmark
+    </h1>
+</p>
 
-RLBench-OG is an extension dataset built on top of RLBench to evaluate model robustness under occlusion and generalization to environment perturbations. The dataset selects ten tasks from RLBench (covering simple and long-horizon tasks) and contains two main components: the Occlusion Suite and the Generalization Suite.
+<div align="center">
+  <p>
+    <a href="https://hcplab-sysu.github.io/TAVP/">
+      <img src="https://img.shields.io/badge/Website-grey?logo=google-chrome&logoColor=white&labelColor=blue">
+    </a>
+    <a href="https://arxiv.org/pdf/2508.05186">
+      <img src="https://img.shields.io/badge/arXiv-grey?logo=arxiv&logoColor=white&labelColor=red">
+    </a>
+    <a href="https://huggingface.co/datasets/baiyu858/RLBench-OG">
+      <img src="https://img.shields.io/badge/%F0%9F%A4%97-Huggingface-yellow">
+    </a>
+  </p>
+</div>
+<br>
 
-## Dataset Overview
+## Introduction
+
+RLBench-OG is an extension benchmark built on top of RLBench to evaluate model robustness under occlusion and generalization to environment perturbations. The benchmark selects ten tasks from RLBench (covering simple and long-horizon tasks) and contains two main components: the Occlusion Suite and the Generalization Suite.
+
+## Benchmark Overview
 
 - Occlusion Suite: Occlusions are introduced to the `front_camera` via two mechanisms:
   1. Self-occlusion by perturbing object poses (e.g., rotating a drawer to occlude the handle).
@@ -92,9 +113,19 @@ Both scripts assume RLBench / PyRep / CoppeliaSim are installed and accessible f
 
 Data are organized by task and variation. Each task/variation contains an `episodes` directory with per-episode folders. Each episode includes multi-view RGB / Depth (if enabled), robot state, and action logs. Use `tools/visualize_task.py` or repository `resources` for quick visualization of collected episodes.
 
+## Visualizations
+
+For visualizations of different variant settings corresponding to each task, refer to the figures below:
+
+![Variant Visualizations Part 1](Fig/Fig-og-1.png)
+*Visualization of different variants for the **basketball_in_hoop**, **block_pyramid**, **close_drawer**, **scoop_with_spatula**, **solve_puzzle** tasks.*
+
+![Variant Visualizations Part 2](Fig/Fig-og-2.png)
+*Visualization of different variants for the **straighten_rope**, **take_plate_off_colored_dish_rack**, **take_usb_out_of_computer**, **toilet_seat_down**, **water_plants** tasks.*
+
 ## Acknowledgement
 
-We extend our sincere gratitude to the following open-source projects: [PyRep](https://github.com/stepjam/PyRep.git), [RLBench](https://github.com/stepjam/RLBench), and [Colosseum](https://github.com/robot-colosseum/robot-colosseum.git). Our **RLBench-OG** Benchmark is built upon their foundations.
+We extend our sincere gratitude to the following open-source projects: [PyRep](https://github.com/stepjam/PyRep.git), [RLBench](https://github.com/stepjam/RLBench), and [Colosseum](https://github.com/robot-colosseum/robot-colosseum.git). Our RLBench-OG Benchmark is built upon their foundations.
 
 ## Citation & License
 
