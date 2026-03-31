@@ -1,6 +1,6 @@
 <p align="center">
     <h1 align="center">
-        RLBench-OG Benchmark
+        RLBench-OG Benchmark [CVPR'26]
     </h1>
 </p>
 
@@ -132,14 +132,12 @@ We extend our sincere gratitude to the following open-source projects: [PyRep](h
 If you use this dataset in your research, please cite:
 
 ```
-@misc{bai2025learningacttaskawareview,
-  title={Learning to See and Act: Task-Aware Virtual View Exploration for Robotic Manipulation},
-  author={Yongjie Bai and Zhouxia Wang and Yang Liu and Kaijun Luo and Yifan Wen and Mingtong Dai and Weixing Chen and Ziliang Chen and Lingbo Liu and Guanbin Li and Liang Lin},
-  year={2025},
-  eprint={2508.05186},
-  archivePrefix={arXiv},
-  primaryClass={cs.RO},
-  url={https://arxiv.org/abs/2508.05186},
+@InProceedings{Bai_2026_CVPR,
+  author    = {Bai, Yongjie and Wang, Zhouxia and Liu, Yang and Luo, Kaijun and Wen, Yifan and Dai, Mingtong and Chen, Weixing and Chen, Ziliang and Liu, Lingbo and Li, Guanbin and Lin, Liang},
+  title     = {Learning to See and Act: Task-Aware Virtual View Exploration for Robotic Manipulation},
+  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  month     = {June},
+  year      = {2026}
 }
 ```
 
